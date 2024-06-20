@@ -1,0 +1,65 @@
+CREATE TABLE app_users (
+    user_uid UUID NOT NULL PRIMARY KEY,
+    user_first_name VARCHAR(50) NOT NULL,
+    user_last_name VARCHAR(50) NOT NULL,
+    user_display_name VARCHAR(50) NOT NULL,
+    user_email VARCHAR(100) NOT NULL);
+
+
+INSERT INTO app_users(
+    user_uid,
+    user_first_name,
+    user_last_name,
+    user_display_name,
+    user_email) 
+VALUES (
+    uuid_generate_v4(),
+    'Jhon',
+    'Doe',
+    'HappyUser420',
+    'JhonDoe@gmail.com'
+);
+
+
+CREATE TABLE cities_data(
+city_id UUID NOT NULL PRIMARY KEY,
+city_name VARCHAR(100) NOT NULL UNIQUE
+);
+
+INSERT INTO cities_data(city_id,city_name)
+VALUES (uuid_generate_v4(),'Night City');
+
+
+
+
+CREATE TABLE posts(
+post_id UUID NOT NULL PRIMARY KEY,
+user_uid UUID REFERENCES app_users(user_uid) ON DELETE CASCADE,
+city_id UUID REFERENCES cities_data(city_id) ON DELETE CASCADE,
+post_type VARCHAR(50),
+post_content TEXT
+);
+
+INSERT INTO posts(
+post_id,
+user_uid,
+city_id,
+post_type,
+post_content)
+VALUES
+(
+uuid_generate_v4(),
+'41c8d534-54cb-46d6-bfb9-b870b44bbfe4',
+'6e543c29-b571-4be1-b439-c98043372cb2',
+'general',
+'This is the First Post'
+);
+
+CREATE TABLE user_passwords(
+user_uid UUID REFERENCES app_users(user_uid) ON DELETE CASCADE NOT NULL,
+pass_hash bytea NOT NULL,
+pass_salt bytea NOT NULL
+);
+
+
+

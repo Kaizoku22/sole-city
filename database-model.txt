@@ -1,0 +1,32 @@
+app_user(
+user_id UUID PRIMARY KEY,auto increament,
+user_first_name varchar
+user last_name varchar,
+user_email varchar unique,
+user_password varchar/hash,
+user_bio,
+user_displayName varchar,
+user_profile_pic url,
+user_mobile_no number unique,
+user_nation varchar,
+user_state varchar,
+user_dob datetime,
+diplay_name BOOLEAN,
+)
+
+
+city_posts(
+post_id UUID PRIMARY KEY, auto_increment,
+user_id varhcar FOREIGN KEY FROM TABLE USER ,
+post_city varchar FOREIGN KEY FROM TABLE city,
+post_type varchar,
+post_content varchar,
+posted_at  datetime,
+post_media media
+)
+
+
+cities_data(
+city_id UUID primary key,auto increment,
+city_name text unique,
+)

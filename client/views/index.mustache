@@ -1,0 +1,27 @@
+<html>
+<head> 
+    <title>
+        Sole-city
+    </title>
+  
+  <script src="https://unpkg.com/htmx.org@1.9.12/dist/htmx.js" integrity="sha384-qbtR4rS9RrUMECUWDWM2+YGgN3U4V4ZncZ0BvUcg9FGct0jqXz3PUdVpU1p0yrXS" crossorigin="anonymous"></script>
+</head>
+
+
+<body>
+<div>
+	<h1> {{title}}</h1>
+</div>
+<div class="page">
+	<button hx-get="/getPosts" hx-target="#posts-list"> 
+		Get Posts
+	</button>
+	<button hx-get="/register" hx-target=".page"> 
+		Register
+	</button>
+
+	<div id ="posts-list"></div>
+
+</div>
+</body>
+</html>

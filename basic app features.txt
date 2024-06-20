@@ -31,3 +31,7 @@ The concept of the application is to people to create communities of their own c
 Have to add some kind of safety checks on the app to not become like other social media shit posting app like quora or instagram
 
 
+
+The architecture for the app:
+
+Database : PostgreSQL data base using Supabase
