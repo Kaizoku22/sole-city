@@ -61,5 +61,10 @@ pass_hash bytea NOT NULL,
 pass_salt bytea NOT NULL
 );
 
-
+CREATE TABLE user_sessions(
+session_id bytea PRIMARY KEY,
+started_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+user_uid UUID REFERENCES app_users(user_uid) ON DELETE CASCADE NOT NULL,
+role TEXT
+);
 

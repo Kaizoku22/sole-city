@@ -14,8 +14,8 @@ const pool = new Pool({
 
 const postsTable ="posts";
 const usersTable ="app_users";
-const passTable  ="user_passwords"
-
+const passTable  ="user_passwords";
+const sessionTable ="user_sessions";
 function query(text,params,callback)
 {
     return pool.query(text,params,callback);
@@ -28,5 +28,5 @@ return createHash('sha256').update(pass).digest('hex');
 }
 
 
-module.exports = { hash,query,postsTable,usersTable,passTable};
+module.exports = { hash,query,postsTable,usersTable,passTable,sessionTable};
 
